@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #eee;
+    margin-bottom: 20px;
+}
+
+.game-area {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Board */
+
+.board {
+    width: min(600px, 90vw);
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border: 5px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cell {
+    position: relative;
+    border: 1px solid #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: clamp(10px, 1.5vw, 18px);
+}
+
+.cell:nth-child(odd) {
+    background: #fff3cd;
+}
+
+.cell:nth-child(even) {
+    background: #d1ecf1;
+}
+
+/* Special cells */
+
+.ladder {
+    background: #c8f7c5 !important;
+}
+
+.snake {
+    background: #ffd0d0 !important;
+}
+
+.number {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    color: #333;
+}
+
+.special {
+    font-size: clamp(15px, 2vw, 28px);
+}
+
+/* Players */
+
+.player {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px #555;
+    z-index: 5;
+}
+
+.player1-piece {
+    background: #e63946;
+    left: 5px;
+}
+
+.player2-piece {
+    background: #2563eb;
+    right: 5px;
+}
+
+/* Controls */
+
+.controls {
+    width: 280px;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.player-card {
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.player1 {
+    background: #ffe0e3;
+}
+
+.player2 {
+    background: #dbeafe;
+}
+
+.piece {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red {
+    background: #e63946;
+}
+
+.blue {
+    background: #2563eb;
+}
+
+.player-card span:last-child {
+    display: block;
+    font-size: 12px;
+}
+
+.turn {
+    margin: 20px 0;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.dice-area {
+    margin: 15px;
+}
+
+#dice {
+    font-size: 70px;
+    transition: transform 0.3s;
+}
+
+#dice.rolling {
+    animation: roll 0.5s infinite;
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#dice-result {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#rollBtn {
+    background: #22c55e;
+    color: white;
+}
+
+#restartBtn {
+    background: #ef4444;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .game-area {
+        flex-direction: column;
+    }
+
+    .controls {
+        width: min(400px, 90vw);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .game-area {
+        padding: 12px;
+    }
+
+    .board {
+        width: 95vw;
+    }
+
+    .player {
+        width: 18px;
+        height: 18px;
+    }
+
+    #dice {
+        font-size: 55px;
+    }
+}

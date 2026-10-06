@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake & Ladder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🐍 Snake & Ladder 🪜</h1>
+        <p class="subtitle">Roll the dice and reach 100!</p>
+
+        <div class="game-area">
+
+            <!-- Game Board -->
+            <div class="board" id="board"></div>
+
+            <!-- Game Controls -->
+            <div class="controls">
+
+                <div class="players">
+                    <div class="player-card player1">
+                        <span class="piece red"></span>
+                        <strong>Player 1</strong>
+                        <span id="position1">Position: 1</span>
+                    </div>
+
+                    <div class="player-card player2">
+                        <span class="piece blue"></span>
+                        <strong>Player 2</strong>
+                        <span id="position2">Position: 1</span>
+                    </div>
+                </div>
+
+                <div class="turn" id="turn">
+                    Player 1's Turn
+                </div>
+
+                <div class="dice-area">
+                    <div id="dice">🎲</div>
+                    <p id="dice-result">Roll the dice!</p>
+                </div>
+
+                <button id="rollBtn">🎲 Roll Dice</button>
+                <button id="restartBtn">🔄 Restart Game</button>
+
+                <p id="message">Player 1, roll the dice to start!</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
